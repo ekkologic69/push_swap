@@ -16,7 +16,7 @@ void	sorting(t_list **stack_a, t_list **stack_b, int ac, int *tab)
 {
 	if (ac > 1)
 	{
-		if (ac > 100)
+		if (ac > 150)
 			sort_500(stack_a, stack_b, tab);
 		else if (ac >= 50)
 			sort_100(stack_a, stack_b, tab);

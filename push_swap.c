@@ -12,6 +12,24 @@
 
 #include"push_swap.h"
 
+int	check_if_sorted(t_list *stack_a)
+{
+	int	i;
+
+	if (stack_a)
+	{
+		while (stack_a->next)
+		{
+			i = stack_a->data;
+			stack_a = stack_a->next;
+			if (i > stack_a->data)
+				return (0);
+		}
+		return (1);
+	}
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	int			i;
@@ -32,7 +50,8 @@ int	main(int ac, char **av)
 			creat(&stack_a, ft_atoi(av[i]));
 				i++;
 		}
-		sorting(&stack_a, &stack_b, ac, tab);
+		if (!check_if_sorted(stack_a))
+			sorting(&stack_a, &stack_b, ac, tab);
 	}
 	return (0);
 }

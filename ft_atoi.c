@@ -48,20 +48,38 @@ int	ft_atoi(char *str)
 	return (check(counter, sign, result));
 }
 
-// char	*ft_strchr(char **av, int c)
-// {
-// 	int	i;
-// 	int j;
+static long	check_1(int counter, long sign, long result)
+{
+	if (counter > 11)
+		print_error();
+	return (result * sign);
+}
 
-// 	i = 0;
-// 	j = 0;
-// 	while (av[i][j])
-// 	{
-// 		if (av[i] == (char)c)
-// 			return ((char *)&s[i]);
-// 		i++;
-// 	}
-// 	if (s[i] == (char)c)
-// 		return ((char *)&s[i]);
-// 	return (NULL);
-// }
+long	ft_atoi_1(char *str)
+{
+	int		i;
+	long	sign;
+	long	result;
+	int		counter;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	counter = 0;
+	while (str[i] == ' ' || str[i] == '\r' || str[i] == '\f' || str[i] == '\n'
+		|| str[i] == '\v' || str[i] == '\t')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign = -1 * sign;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + str[i] - '0';
+		i++;
+		counter++;
+	}
+	return (check_1(counter, sign, result));
+}

@@ -35,7 +35,7 @@ int	ft_check_num(char **av)
 	while (av[i])
 	{
 		j = 0;
-		if (ft_atoi(av[i]) > 2147483647 || ft_atoi(av[i]) < -2147483648)
+		if (ft_atoi_1(av[i]) > 2147483647 || ft_atoi_1(av[i]) < -2147483648)
 			print_error();
 		if ((av[i][0] == '-' || av[i][0] == '+') && av[i][1] != '\0')
 			j = 1;

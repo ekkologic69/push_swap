@@ -90,4 +90,6 @@ void	rb(t_list **stack_b, int false);
 void	rrb(t_list **stack_b, int false);
 void	pb(t_list **stack_a, t_list **stack_b, int false);
 int		check_if(t_list **stack_a, t_range *range);
+long	ft_atoi_1(char *str);
+int		check_if_sorted(t_list *stack_a);
 #endif
